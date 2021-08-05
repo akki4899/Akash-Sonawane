@@ -1,25 +1,31 @@
+import java.util.*;
 
-#include<bits/stdc++.h>
-using namespace std;
-int main()
-{
-	int n;
-	cin>>n;
-	char hike[n];
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        char[] hike = scan.next().toCharArray();
+        
         int count = 0;
         int altitude = 0;
         
-        for(int i=0;i<n;i++) {
-            if(hike[i]== 'U') {
+        for(char c : hike) {
+            // Step up
+            if(c == 'U') {
                 if(altitude == -1) {
                     count++;
                 }
                 altitude++;
             }
+            // Step down
             else {
                 altitude--;
             }
-        }        
-    	cout<<count;
-   return 0;
+        }
+
+        scan.close();
+        
+        System.out.println(count);
     }
+}
